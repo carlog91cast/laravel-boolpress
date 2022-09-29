@@ -1,18 +1,18 @@
 <template>
     <div>
         <HeaderComponent />
-        <MainComponent />
+        <!-- <MainComponent /> -->
 
         <router-view></router-view>
     </div>
 </template>
 
 <script>
-import MainComponent from '../components/MainComponent.vue';
+// import MainComponent from '../components/MainComponent.vue';
 import HeaderComponent from '../components/HeaderComponent.vue';
 export default {
     components: {
-        MainComponent,
+        // MainComponent,
         HeaderComponent
     }
 }
