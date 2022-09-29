@@ -20,8 +20,8 @@ const router = new VueRouter({
             component: AboutPage
         },
         {
-            path: '/gallery',
-            name: 'gallery',
+            path: '/contact',
+            name: 'contact',
             component: ContactPage
         },
     ]
