@@ -1,7 +1,7 @@
 <?php
 
-use App\Models\Admin\Posts as AdminPosts;
-use App\Models\posts;
+
+use App\Models\Post;
 use App\User;
 use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
@@ -18,7 +18,7 @@ class PostsTableSeeder extends Seeder
         $user = user::all();
         for ($i=0; $i < count($user); $i++) { 
             
-            $newPost = new Posts();
+            $newPost = new Post();
             $newPost->user_id = $user[$i]->id;
             $newPost->title = $faker->realText(35);
             $newPost->author = $faker->userName();

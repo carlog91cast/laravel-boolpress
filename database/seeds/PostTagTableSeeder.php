@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Models\posts;
+use App\Models\post;
 use App\Models\Tag;
 
 class PostTagTableSeeder extends Seeder
@@ -13,7 +13,7 @@ class PostTagTableSeeder extends Seeder
      */
     public function run()
     {
-        $posts = Posts::all();
+        $posts = Post::all();
         
 
         foreach ($posts as $post) {

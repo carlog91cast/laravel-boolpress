@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Posts;
+use App\Models\Post;
 use App\User;
 use DateTime;
 use Illuminate\Http\Request;
@@ -20,7 +20,7 @@ class PostController extends Controller
     public function index()
     {
 
-        $posts = Posts::all();
+        $posts = Post::all();
         //$posts = Posts::where('user_id', Auth::id())->get();
         return view('admin.posts.index', compact('posts'));
     }
@@ -71,7 +71,7 @@ class PostController extends Controller
         // $post->post_date = $sentData['post_date'];
         // $post->save();
 
-        Posts::create($sentData);
+        Post::create($sentData);
 
         return redirect()->route('admin.posts.show', compact('post'));
     }
@@ -84,7 +84,7 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        $post = Posts::findOrFail($id);
+        $post = Post::findOrFail($id);
         return view('admin.posts.show', compact('post'));
     }
 
@@ -96,7 +96,7 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        $post = Posts::findOrFail($id);
+        $post = Post::findOrFail($id);
         return view('admin.posts.edit', compact('post'));
     }
 
@@ -111,7 +111,7 @@ class PostController extends Controller
     {
         $sentData = $request->all();
 
-        $post = Posts::findOrFail($id);
+        $post = Post::findOrFail($id);
         $post->update($sentData);
         return redirect()->route('admin.posts.index', $post->id);
     }
@@ -125,10 +125,10 @@ class PostController extends Controller
     public function destroy($id)
     {
 
-        $post = Posts::findOrFail($id);
+        $post = Post::findOrFail($id);
         $post->delete();
         return redirect()->route('admin.posts.index')->with('delete', $post->title);
-        $posts = Posts::all();
+        $posts = Post::all();
         return redirect()->route('admin.posts.index', compact('posts'));
     }
 }
