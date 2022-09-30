@@ -1976,7 +1976,34 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      posts: []
+    };
+  },
+  methods: {
+    getPosts: function getPosts() {
+      var _this = this;
+
+      var postsPage = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/posts", {
+        page: postsPage
+      }).then(function (response) {
+        console.log(response.data.results.data);
+        _this.posts = response.data.results.data;
+      })["catch"](function (error) {
+        console.error(error);
+      });
+    }
+  },
+  created: function created() {
+    this.getPosts();
+  }
+});
 
 /***/ }),
 
@@ -2201,14 +2228,50 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _vm._m(0);
+  return _c("div", {
+    staticClass: "container"
+  }, [_c("table", {
+    staticClass: "table table-striped table-hover mt-5"
+  }, [_vm._m(0), _vm._v(" "), _c("tbody", _vm._l(_vm.posts, function (post) {
+    return _c("tr", {
+      key: post.id
+    }, [_c("th", {
+      attrs: {
+        scope: "row"
+      }
+    }, [_vm._v(_vm._s(post.author))]), _vm._v(" "), _c("td", [_c("a", [_vm._v(_vm._s(post.title))])]), _vm._v(" "), _c("td", [_vm._v(_vm._s(post.post_content))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(post.post_date))]), _vm._v(" "), _c("td", [_c("button", {
+      staticClass: "btn btn-primary"
+    }, [_c("a", {
+      staticClass: "text-decoration-none text-white"
+    }, [_vm._v(_vm._s(post.id))])])]), _vm._v(" "), _c("td", [_c("button", {
+      staticClass: "btn btn-secondary"
+    }, [_c("a", {
+      staticClass: "text-decoration-none text-white"
+    }, [_vm._v(_vm._s(post.id))])])])]);
+  }), 0)])]);
 };
 
 var staticRenderFns = [function () {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("div", [_c("h1", [_vm._v("Home")])]);
+  return _c("thead", [_c("tr", [_c("th", {
+    attrs: {
+      scope: "col"
+    }
+  }, [_vm._v("Author")]), _vm._v(" "), _c("th", {
+    attrs: {
+      scope: "col"
+    }
+  }, [_vm._v("Title")]), _vm._v(" "), _c("th", {
+    attrs: {
+      scope: "col"
+    }
+  }, [_vm._v("Content")]), _vm._v(" "), _c("th", {
+    attrs: {
+      scope: "col"
+    }
+  }, [_vm._v("Date")])])]);
 }];
 render._withStripped = true;
 
