@@ -1,11 +1,14 @@
 <template>
-    <div>
-        <h3>ciao</h3>
+    <div class="container">
+        <ul>
+            <li v-for="tag in tags" :key="tag.id">{{tag.name}}</li>
+        </ul>
     </div>
 </template>
 <script>
+import axios from 'axios';
 export default {
-    name:'TagsPage',
+    name: 'TagsPage',
     data: function () {
         return {
             tags: [],
@@ -29,5 +32,5 @@ export default {
 }
 </script>
 <style>
-    
+
 </style>
