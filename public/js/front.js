@@ -2239,15 +2239,7 @@ var render = function render() {
       attrs: {
         scope: "row"
       }
-    }, [_vm._v(_vm._s(post.author))]), _vm._v(" "), _c("td", [_c("a", [_vm._v(_vm._s(post.title))])]), _vm._v(" "), _c("td", [_vm._v(_vm._s(post.post_content))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(post.post_date))]), _vm._v(" "), _c("td", [_c("button", {
-      staticClass: "btn btn-primary"
-    }, [_c("a", {
-      staticClass: "text-decoration-none text-white"
-    }, [_vm._v(_vm._s(post.id))])])]), _vm._v(" "), _c("td", [_c("button", {
-      staticClass: "btn btn-secondary"
-    }, [_c("a", {
-      staticClass: "text-decoration-none text-white"
-    }, [_vm._v(_vm._s(post.id))])])])]);
+    }, [_vm._v(_vm._s(post.author))]), _vm._v(" "), _c("td", [_c("a", [_vm._v(_vm._s(post.title))])]), _vm._v(" "), _c("td", [_vm._v(_vm._s(post.post_content))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(post.post_date))])]);
   }), 0)])]);
 };
 
