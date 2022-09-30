@@ -54,7 +54,15 @@ class TagController extends Controller
      */
     public function show($id)
     {
-        //
+        $tags = Tag::find($id);
+        if ($tags) {
+            return response()->json([
+                'response' => true,
+                'results' => [
+                    'data' => $tags
+                ]
+            ]);
+        } else return response('', 404);
     }
 
     /**
